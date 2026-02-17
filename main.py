@@ -13,6 +13,6 @@ class QueryRequest(BaseModel):
 def chat(request: QueryRequest):
     movie_database = MovieDatabase()
     retrieval = Retrieval(movie_database)
-    movie_model = MovieModel(retrieval, "tiiuae/falcon-7b-instruct")
+    movie_model = MovieModel(retrieval, "meta-llama/Llama-2-7b-hf")
     generated_answer = movie_model.generate_answer(request.query)
     return {"response": generated_answer}
